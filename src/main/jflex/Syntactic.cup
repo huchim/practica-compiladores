@@ -1,0 +1,22 @@
+package com.compiladores.compiladores;
+
+//Java Libraries
+import java.util.ArrayList;
+import java_cup.runtime.Symbol;
+
+parser code {:
+    public ArrayList<String> SyntacticErrors = new ArrayList<String>();
+    public int count = 0;
+
+    public void syntax_error(Symbol cur_token){
+        java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) cur_token);
+        System.out.println("*** Error Sintactico. Linea: " + (s.left+1) + " Columna: " + (s.right+1) + ". Simbolo: \'" + s.value + "\' *** Mensaje Error: Simbolo no reconocido.");
+        SyntacticErrors.add("*** Error Sintactico. Linea: " + (s.left+1) + " Columna: " + (s.right+1) + ". Simbolo: \'" + s.value + "\' *** Mensaje Error: Simbolo no reconocido.");
+    }
+
+    public void unrecovered_syntax_error(Symbol cur_token){
+        java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) cur_token);
+        System.out.println("*** Error Sintactico No Recuperado. Linea: " + (s.left+1) + " Columna: " + (s.right+1) + ". Simbolo: \'" + s.value + "\' *** Mensaje Error: Simbolo no reconocido.");
+        SyntacticErrors.add("*** Error Sintactico No Recuperado. Linea: " + (s.left+1) + " Columna: " + (s.right+1) + ". Simbolo: \'" + s.value + "\' *** Mensaje Error: Simbolo no reconocido.");
+    }
+:}
