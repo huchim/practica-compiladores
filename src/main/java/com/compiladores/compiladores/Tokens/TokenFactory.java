@@ -14,7 +14,7 @@ public class TokenFactory {
             return new FinArchivo();
             case Simbolos.OP_ASSIGN:
             return new OperadorAsignacion(lexema, line, column);
-            case Simbolos.ERROR:
+            case Simbolos.UNKNOWN_TOKEN:
                 return new TokenDesconocido(lexema, line, column, ER);
             default:
                 return new Token(symbolId, lexema, line, column, ER);

@@ -17,9 +17,9 @@ public class Main {
 
     public static void main( String[] args ) throws IOException
     {
-        String entrada = "var ñ = 10";
+        String entrada = "demo=10";
         Reader sr = new StringReader(entrada);
-        AnalizadorSintactico lx = new AnalizadorSintactico(sr);
+        AnalizadorLexico lx = new AnalizadorLexico(sr);
         
         Token tk = lx.next_token();
         

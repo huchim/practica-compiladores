@@ -21,7 +21,7 @@ Este archivo contiene 3 secciones.
 
 ### Sección de código de usuario.
 
-JFlex genera un archivo que es el que funcionará como analizador sintáctico.
+JFlex genera un archivo que es el que funcionará como analizador léxico.
 
 ```java
 /* 1. Código de usuario */
@@ -39,7 +39,7 @@ import com.compiladores.compiladores.Tokens.*;
 La segunda sección, corresponde a las opciones para generar el archivo:
 
 ```lex
-%class AnalizadorSintactico
+%class AnalizadorLexico
 %cup
 %public
 %function next_token
