@@ -1,0 +1,12 @@
+package com.compiladores.compiladores;
+
+import java.util.ArrayList;
+import java_cup.runtime.*;
+
+terminal ID, NUM, COMMA, OP_ASSIGN, UNKNOWN_TOKEN;
+
+non terminal L;
+
+start with L;
+
+L ::= L COMMA ID | ID;

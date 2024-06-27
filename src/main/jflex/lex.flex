@@ -9,7 +9,7 @@ import com.compiladores.compiladores.Tokens.*;
 
 /* 2. Opciones y declaraciones */
 %%
-%class AnalizadorSintactico
+%class AnalizadorLexico
 %cup
 %public
 %function next_token
@@ -53,4 +53,4 @@ OperadorIgualdad = ("=")
 
 {EspaciosBlanco}                { /* ignore */ }
 
-.  { if (yytext() != null && yytext().length() > 0) return TokenFactory.crear(Simbolos.ERROR, yytext(), yyline, yycolumn, null); } 
+.  { if (yytext() != null && yytext().length() > 0) return TokenFactory.crear(Simbolos.UNKNOWN_TOKEN, yytext(), yyline, yycolumn, null); } 

@@ -6,26 +6,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-  <repositories>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>Maven Repository Switchboard</name>
-      <url>https://repo1.maven.org/maven2</url>
-    </repository>
-
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>redhat-ga</id>
-      <name>Redhat GA</name>
-      <url>https://maven.repository.redhat.com/ga/</url>
-    </repository>
-  </repositories>
-
     <dependencies>
         <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -38,9 +18,14 @@
     
     </dependency>
         <dependency>
-            <groupId>java-cup</groupId>
+            <groupId>com.github.vbmacher</groupId>
             <artifactId>java-cup</artifactId>
-            <version>0.11a-redhat-1</version>
+            <version>11b-20160615-3</version>
+        </dependency>
+        <dependency>
+          <groupId>com.github.vbmacher</groupId>
+          <artifactId>java-cup-runtime</artifactId>
+          <version>11b-20160615-3</version>
         </dependency>
     </dependencies>
     <properties>
@@ -94,6 +79,24 @@
       </plugins>
     </pluginManagement>
     <plugins>
+      <plugin>
+        <groupId>com.github.vbmacher</groupId>
+        <artifactId>cup-maven-plugin</artifactId>
+        <version>11b-20160615-3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <packageName>com.compiladores.compiladores</packageName>
+          <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+          <className>AnalizadorSintactico</className>
+          <symbolsName>Simbolos</symbolsName>
+        </configuration>
+      </plugin>
         <plugin>
         <groupId>de.jflex</groupId>
         <artifactId>jflex-maven-plugin</artifactId>
