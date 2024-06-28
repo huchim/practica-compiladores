@@ -11,6 +11,7 @@
   - `JFLEX_HOME=C:\Users\da227\Downloads\Demo1\jflex-1.9.1`
 - Instalar NetBeans
   - https://www.apache.org/dyn/closer.lua/netbeans/netbeans-installers/22/Apache-NetBeans-22-bin-windows-x64.exe
+  - Descargar un plugin para el editor: https://plugins.netbeans.apache.org/catalogue/?id=84 e instalar en Netbeans.
 - Compilar proyecto (F11)
 
 ## Introducción
