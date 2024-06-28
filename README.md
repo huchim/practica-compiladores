@@ -97,25 +97,9 @@ Cada token que acepta el programa se encuentra declarado en la clase `Token`. Pa
 
 Para crear un nuevo token se debe seguir los siguientes pasos:
 
-1.- **Crear un nuevo identificador de token** en la clase `Simbolos`. El identificador es un número único que corresponderá a cada token. La clase es parecida a la siguiente:
+1.- **Crear una clase especializada** que derive de `Token`, use el eemplo de `OperadoAsignacion`:
 
-```java
-package com.compiladores.compiladores;
-
-public class Simbolos {
-    public static final int ERROR = -1;
-    public static final int ID = 1;
-    public static final int NUM = 2;
-    public static final int EOF = 58;
-    public static final int OP_ASSIGN = 3;
-
-    /** Crear una nueva línea para cada Token */
-}
-```
-
-Un identificador, permitirá reconocer el tipo de token más adelante.
-
-2.- **Crear una clase especializada** que derive de `Token`, use el eemplo de `OperadoAsignacion`:
+> Definir en `cup/parser.cup` antes y construir.
 
 ```java
 package com.compiladores.compiladores.Tokens;
@@ -133,7 +117,7 @@ Este paso es importante para que sepamos más adelante que la instancia del toke
 
 Es importante mencionar que el valor de cada token debe ser tratado de manera distinta, es decir, a veces es un número entero, otras veces un valor booleano.
 
-3.- **Agregar el token a la fábrica de tokens**. La fábrica de tokens sirve para que en el archivo de JFlex, podamos pasarle únicamente el identificador del token y la fábrica cree la instancia correcta. La clase se llama `TokenFactory`.
+2.- **Agregar el token a la fábrica de tokens**. La fábrica de tokens sirve para que en el archivo de JFlex, podamos pasarle únicamente el identificador del token y la fábrica cree la instancia correcta. La clase se llama `TokenFactory`.
 
 ```java
 package com.compiladores.compiladores.Tokens;
@@ -153,7 +137,7 @@ public class TokenFactory {
 }
 ```
 
-5.- **Definir la regla léxica en el archivo de JFlex**. Este es el paso más complicado, básicamente hay que definir la estructura de un token en la sección 2 del archivo de JFlex y luego en la sección 3, definir un código para devolver el token correcto.
+3.- **Definir la regla léxica en el archivo de JFlex**. Este es el paso más complicado, básicamente hay que definir la estructura de un token en la sección 2 del archivo de JFlex y luego en la sección 3, definir un código para devolver el token correcto.
 
 ```jflex
 {NumeroDecimal}             { return TokenFactory.crear(Simbolos.NUM, yytext(), yyline, yycolumn, "dd*"); }
